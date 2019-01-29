@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ktzb.dao.ProductInfoDao">
+
+
+
+    <insert id="addProductInfo" parameterType="com.example.ktzb.entity.ProductInfo">
+    <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+        SELECT LAST_INSERT_ID()
+    </selectKey>
+        INSERT INTO `test`.`product_info` (
+          `name`,
+          `price`,
+          `agency_price`,
+          `img_path`,
+          `img_url`,
+          `product_code`
+        )
+        VALUES
+          (
+            #{name},
+            #{price},
+            #{agencyPrice},
+            #{imgPath},
+            #{imgUrl},
+            #{productCode}
+          );
+    </insert>
+
+
+
+    <select id="getProductList" resultType="com.example.ktzb.entity.ProductInfo" parameterType="com.example.ktzb.entity.ProductInfo">
+        SELECT
+          `id`,
+          `name`,
+          `price`,
+          `agency_price` as agencyPrice,
+          `img_path` as imgPath,
+          `img_url` as imgUrl,
+          `product_code` as productCode
+        FROM
+          product_info
+
+    </select>
+
+
+</mapper>
