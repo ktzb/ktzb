@@ -6,7 +6,6 @@ import com.example.ktzb.util.DownloadImage;
 import com.example.ktzb.util.InfoGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
