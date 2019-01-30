@@ -10,6 +10,8 @@ public class Category {
 
     private String imgUrl;
 
+    private String isEnable;
+
 
     public Long getId() {
         return id;
@@ -35,12 +37,21 @@ public class Category {
         this.imgUrl = imgUrl;
     }
 
+    public String getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(String isEnable) {
+        this.isEnable = isEnable;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
+                ", isEnable='" + isEnable + '\'' +
                 '}';
     }
 }

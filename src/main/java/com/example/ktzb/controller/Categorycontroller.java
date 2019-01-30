@@ -3,6 +3,7 @@ package com.example.ktzb.controller;
 import com.example.ktzb.entity.Category;
 import com.example.ktzb.entity.ProductInfo;
 import com.example.ktzb.service.CategoryService;
+import com.example.ktzb.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,13 @@ public class Categorycontroller {
     private CategoryService categoryService;
 
     //获取所有类目
-    @RequestMapping("/getProductByCategory")
+    @RequestMapping("/getCategoryList")
     @ResponseBody
     public List<Category> getCategoryList(Category category) throws Exception {
         log.info("***** getProductByCategory *****="+category.toString());
+        if(StringUtil.isBlank(category.getIsEnable())){
+            category.setIsEnable("0");
+        }
         return  categoryService.getCategoryList(category);
     }
 

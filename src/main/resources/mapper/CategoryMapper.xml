@@ -12,10 +12,13 @@
           `img_url` AS imgUrl,
           `is_enable` AS isEnable
         FROM
-          product_categoryn
+        product_category
           <where>
               <if test="id !=null and id !=''">
                   id = #{id}
+              </if>
+              <if test="isEnable !=null and isEnable !=''">
+                  is_enable = #{isEnable}
               </if>
           </where>
     </select>
