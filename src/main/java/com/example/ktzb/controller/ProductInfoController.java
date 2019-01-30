@@ -16,13 +16,15 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class GetConInfoController {
+public class ProductInfoController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Resource
     private ProductInfoService productInfoService;
 
+
+    //创建产品信息并插入表
     @RequestMapping("/createProductInfo")
     @ResponseBody
     public ProductInfo createProductInfo(ProductInfo productInfo) throws Exception {
@@ -37,6 +39,8 @@ public class GetConInfoController {
             productInfo.setName(resutl.get("title"));
             productInfo.setImgUrl(resutl.get("imgUrl"));
             productInfo.setImgPath(path+filename);
+
+
             Long id =  productInfoService.addProductInfo(productInfo);
             log.info("***** productInfo end *****="+id);
         }
