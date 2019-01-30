@@ -11,4 +11,8 @@ public interface ProductInfoService {
 
     List<ProductInfo> getProductList(ProductInfo productInfo);
 
+
+    List<ProductInfo> getProductByCategory(ProductInfo productInfo);
+
+
 }

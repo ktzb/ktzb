@@ -50,14 +50,22 @@ public class ProductInfoController {
 
 
 
-
+    //获取所有产品
     @RequestMapping("/getProductList")
     @ResponseBody
     public List<ProductInfo> getProductList(ProductInfo productInfo) throws Exception {
-        log.info("***** productInfo *****="+productInfo.toString());
+        log.info("***** getProductList *****="+productInfo.toString());
         Map<String,String> resutl = InfoGeneration.infoByJd(productInfo.getProductCode());
         return  productInfoService.getProductList(productInfo);
     }
 
 
+
+    //根据类目获取产品
+    @RequestMapping("/getProductByCategory")
+    @ResponseBody
+    public List<ProductInfo> getProductByCategory(ProductInfo productInfo) throws Exception {
+        log.info("***** getProductByCategory *****="+productInfo.toString());
+        return  productInfoService.getProductByCategory(productInfo);
+    }
 }

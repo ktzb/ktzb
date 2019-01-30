@@ -23,4 +23,9 @@ public class ProductInfoServiceImpl implements ProductInfoService{
     public List<ProductInfo> getProductList(ProductInfo productInfo) {
         return productInfoDao.getProductList(productInfo);
     }
+
+    @Override
+    public List<ProductInfo> getProductByCategory(ProductInfo productInfo) {
+        return productInfoDao.getProductByCategory(productInfo);
+    }
 }

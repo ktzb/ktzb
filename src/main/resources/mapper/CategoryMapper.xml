@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ktzb.dao.CategoryDao">
+
+
+
+    <select id="getCategoryList" resultType="com.example.ktzb.entity.Category" parameterType="com.example.ktzb.entity.Category">
+        SELECT
+          `id`,
+          `name`,
+          `img_url` AS imgUrl,
+          `is_enable` AS isEnable
+        FROM
+          product_categoryn
+          <where>
+              <if test="id !=null and id !=''">
+                  id = #{id}
+              </if>
+          </where>
+    </select>
+
+</mapper>

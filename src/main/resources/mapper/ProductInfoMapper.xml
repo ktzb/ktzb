@@ -45,4 +45,24 @@
     </select>
 
 
+    <select id="getProductByCategory" resultType="com.example.ktzb.entity.ProductInfo" parameterType="com.example.ktzb.entity.ProductInfo">
+        SELECT
+        `id`,
+        `name`,
+        `price`,
+        `agency_price` as agencyPrice,
+        `img_path` as imgPath,
+        `img_url` as imgUrl,
+        `product_code` as productCode
+        FROM
+        product_info
+        LEFT JOIN category_info ON category_info.`info_id` = product_info.`id`
+        <where>
+            <if test="categoryId !=null and category_id !=''">
+                category_info.`category_id` = #{categoryId}
+            </if>
+        </where>
+    </select>
+
+
 </mapper>
