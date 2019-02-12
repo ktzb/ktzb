@@ -44,6 +44,22 @@
 
     </select>
 
+    <select id="getLowPrice" resultType="com.example.ktzb.entity.ProductInfo" parameterType="com.example.ktzb.entity.ProductInfo">
+        	SELECT
+        `id`,
+        `name`,
+        `price`,
+        `agency_price` AS agencyPrice,
+
+
+        `img_path` AS imgPath,
+        `img_url` AS imgUrl,
+        `product_code` AS productCode
+        FROM product_info
+        WHERE product_info.`product_code`  = #{productCode}
+        ORDER BY price ASC LIMIT 1
+    </select>
+
 
     <select id="getProductByCategory" resultType="com.example.ktzb.entity.ProductInfo" parameterType="com.example.ktzb.entity.ProductInfo">
         SELECT

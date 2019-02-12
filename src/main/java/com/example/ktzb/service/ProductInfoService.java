@@ -14,5 +14,9 @@ public interface ProductInfoService {
 
     List<ProductInfo> getProductByCategory(ProductInfo productInfo);
 
+    ProductInfo getLowPrice(ProductInfo productInfo);
+
+
+
 
 }

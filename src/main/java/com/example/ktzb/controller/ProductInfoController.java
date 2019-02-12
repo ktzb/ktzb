@@ -4,6 +4,7 @@ import com.example.ktzb.entity.ProductInfo;
 import com.example.ktzb.service.ProductInfoService;
 import com.example.ktzb.util.DownloadImage;
 import com.example.ktzb.util.InfoGeneration;
+import com.example.ktzb.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +39,6 @@ public class ProductInfoController {
             productInfo.setName(resutl.get("title"));
             productInfo.setImgUrl(resutl.get("imgUrl"));
             productInfo.setImgPath(path+filename);
-
-
             Long id =  productInfoService.addProductInfo(productInfo);
             log.info("***** productInfo end *****="+id);
         }
@@ -67,4 +66,20 @@ public class ProductInfoController {
         log.info("***** getProductByCategory *****="+productInfo.toString());
         return  productInfoService.getProductByCategory(productInfo);
     }
+
+
+
+/*
+    //根据产品code获取数据库是否存在一样的产品编码的并且价格是最低的
+    private ProductInfo getLowPrice(String productCode){
+        ProductInfo productInfo = new ProductInfo();
+        productInfo.setProductCode(productCode);
+        return productInfoService.getLowPrice(productInfo);
+    }
+*/
+
+
+
+
+
 }

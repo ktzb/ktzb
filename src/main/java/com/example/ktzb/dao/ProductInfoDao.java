@@ -15,5 +15,7 @@ public interface ProductInfoDao {
     public List<ProductInfo> getProductByCategory(ProductInfo productInfo);
 
 
+    public ProductInfo getLowPrice(ProductInfo productInfo);
+
 
 }
